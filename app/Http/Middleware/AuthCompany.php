@@ -24,13 +24,10 @@ class AuthCompany
      */
     public function handle($request, Closure $next)
     {
-       
-        dd($request->all());
-
         if($this->slug){
             $cia = \App\Models\Company::where('slug', $this->slug)->first();
             if($cia){
-
+                
             }
         }
     }

@@ -19,6 +19,12 @@ Route::get('home', ['middleware'=>'auth', function() {
     return view('welcome');
 }]);
 
+
+Route::get('dashboard', ['middleware'=>'auth', function() {
+   return view('dashboard.index');
+}]);
+
+
 Route::get('login', 'Login\LoginController@getLogin');
 Route::post('login', 'Login\LoginController@postLogin');
 Route::get('logout', 'Login\LoginController@getLogout');

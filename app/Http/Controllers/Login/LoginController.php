@@ -34,6 +34,8 @@ class LoginController extends Controller
     public function postLogin(Request $data)
     {
         if (Auth::attempt(['email' => $data->email, 'password' => $data->password, 'company'=>$data->company, 'active'=> 1])){
+            
+
             return redirect()->intended($data->company);
         }
         dd('não logado');

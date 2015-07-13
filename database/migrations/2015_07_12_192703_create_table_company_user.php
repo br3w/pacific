@@ -12,7 +12,16 @@ class CreateTableCompanyUser extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('company_user', fuction(Blueprint $table){
+            $table->increments('id');
+            $table->string('company_slug');
+            $table->integer('company_key');
+            $table->integer('user_id');
+            $table->string('user_mail');
+            $table->string('user_status');
+            $table->string('user_type');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateTableCompanyUser extends Migration
      */
     public function down()
     {
-        //
+        Schema::Drop('company_user');
     }
 }
