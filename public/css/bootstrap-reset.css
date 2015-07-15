@@ -77,7 +77,7 @@ a:hover {
 }
 
 .text-muted {
-    color: #a1a1a1;
+    color: #49D2FC;
 }
 
 .text-primary {
@@ -159,14 +159,14 @@ ul {
 }
 
 .btn-primary {
-    background-color: #1fb5ad;
-    border-color: #1fb5ad;
+    background-color: #D0D1D3;
+    border-color: #D0D1D3;
     color: #FFFFFF;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    background-color: #1ca59e;
-    border-color: #1ca59e;
+    background-color: #49D2FC;
+    border-color: #49D2FC;
     color: #FFFFFF;
 }
 

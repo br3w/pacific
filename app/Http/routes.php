@@ -20,9 +20,14 @@ Route::get('home', ['middleware'=>'auth', function() {
 }]);
 
 
-Route::get('dashboard', ['middleware'=>'auth', function() {
-   return view('dashboard.index');
-}]);
+
+Route::get('dashboard', 'Dashboard\DashboardController@getIndex');
+Route::get('dashboard/user', 'User\UserController@getIndex');
+Route::get('dashboard/company', 'Company\CompanyController@getIndex');
+Route::get('dashboard/application', 'Application\ApplicationController@getIndex');
+Route::get('dashboard/notification', 'Notification\NotificationController@getIndex');
+Route::get('dashboard/report', 'Report\ReportController@getIndex');
+
 
 
 Route::get('login', 'Login\LoginController@getLogin');

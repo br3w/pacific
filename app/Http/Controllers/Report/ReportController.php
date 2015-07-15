@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Company;
+namespace App\Http\Controllers\Report;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CompanyController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class CompanyController extends Controller
      */
     public function getIndex()
     {
-        return view('dashboard.company')->with(['company'=>'active']);
+        return view('dashboard.report')->with(['report'=>'active']);
     }
 
     /**

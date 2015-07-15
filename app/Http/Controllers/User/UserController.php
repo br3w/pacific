@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('Auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,9 +25,9 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        //
+        return view('dashboard.user')->with(['user' => 'active']);
     }
 
     /**
