@@ -15,4 +15,4 @@
 
 @section('right-aside')
     <p>This is my right-aside.</p>
-@endsection
+@endsection 

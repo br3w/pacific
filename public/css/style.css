@@ -5431,7 +5431,7 @@ div.tagsinput span.tag {
     height:0;
     width:0;
     position:absolute;
-    pointer-events:none;
+    pointer-events:none; 
 }
 .pull-right.top-menu .dropdown-menu:after {
     border-color:rgba(255,255,255,0);

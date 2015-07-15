@@ -211,7 +211,7 @@
         </li>
 		<li>
 			<a href="{{ url('/auth/logout') }}" class="logout">
-				<div class="fa fa-power-off"></div>
+				<div class="fa fa-power-off"></div>   
 			</a>
 		</li>
         <!-- notification dropdown end -->
