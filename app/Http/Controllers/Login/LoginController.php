@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Login;
 
 use Illuminate\Http\Request;
 use Auth;
+use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -11,7 +12,6 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class LoginController extends Controller
 {
-    
 
     /*
     |--------------------------------------------------------------------------
@@ -24,23 +24,14 @@ class LoginController extends Controller
     |
     */
 
-    use ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     public function getLogin()
     {
         return view('layouts.login');
     }
 
-    public function postLogin(Request $data)
-    {
-        if (Auth::attempt(['email' => $data->email, 'password' => $data->password, 'company'=>$data->company, 'active'=> 1])){
-            
 
-            return redirect()->intended($data->company);
-        }
-        dd('não logado');
-    }   
-    
     public function getLogout()
     {
         Auth::logout();

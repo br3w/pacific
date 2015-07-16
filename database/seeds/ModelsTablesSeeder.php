@@ -6,9 +6,9 @@ class ModelsTableSeeder extends Seeder
 {
 
 	public function run(){
-        factory('App\Models\Company', 5)->create();
-        factory('App\Models\User', 5)->create();
-        factory('App\Models\Application', 5)->create();
+		factory('App\Models\Company', 3)->create();
+		factory('App\Models\User', 3)->create();
+		factory('App\Models\Application', 3)->create();
 	}
 
 }

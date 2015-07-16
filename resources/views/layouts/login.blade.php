@@ -46,7 +46,8 @@
 				@endif	
 
 				<div class="user-login-info">
-					<input type="hidden"    name="_token" value="{!! csrf_token() !!}">					
+
+					{!! csrf_field() !!}				
 					<input type="text" 		name="company" 	    value="{{old('company')}}"    class="form-control" placeholder="Company">
 					<input type="text" 		name="email" 	    value="{{old('email')}}"  	  class="form-control" placeholder="Email">
 					<input type="password"  name="password"     value=""    class="form-control" placeholder="Password">

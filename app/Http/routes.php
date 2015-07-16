@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('home', ['middleware'=>'auth', function() {
-    return view('welcome');
+	return view('welcome');
 }]);
 
 
@@ -34,16 +34,14 @@ Route::get('login', 'Login\LoginController@getLogin');
 Route::post('login', 'Login\LoginController@postLogin');
 Route::get('logout', 'Login\LoginController@getLogout');
 
-Route::group(['prefix' => '{company}', 'middleware'=>'auth'], function($company){
-    
-    Route::get('/', ['middleware'=>'company', function($company){
+Route::group(['prefix' => 'company/{company}', 'middleware'=>'auth'], function($company){
 
-    }]);
+	Route::get('/', 'Company\CompanyController@getIndex');
 
-    Route::get('/dash', function($company){        
-        $try = \App\Models\Company::where('slug', $company)->first();
-        dd($try);
-    });
+	Route::get('/dash', function($company){        
+		$try = \App\Models\Company::where('slug', $company)->first();
+		dd($try);
+	});
 });
 
 

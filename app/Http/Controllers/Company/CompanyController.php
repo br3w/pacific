@@ -9,6 +9,17 @@ use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
 {
+    
+    /**
+     * Login controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class CompanyController extends Controller
      */
     public function getIndex()
     {
-        return view('dashboard.company')->with(['company'=>'active']);
+        return view('company.default')->with(['company'=>'active']);
     }
 
     /**

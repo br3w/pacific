@@ -10,6 +10,18 @@ use App\Http\Controllers\Controller;
 class ApplicationController extends Controller
 {
     /**
+     * Login controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response

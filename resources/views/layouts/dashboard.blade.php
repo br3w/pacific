@@ -36,7 +36,7 @@
 			
             <div class="brand">
 			    <a href="index.html" class="logo">
-			        <img class="onsingle-logo" src="{{url('images/logo-onsingle.jpg')}}" alt="">
+			    	<img class="onsingle-logo" src="{{url('images/logo-onsingle.jpg')}}" alt="">
 			    </a>
 			</div>
 
