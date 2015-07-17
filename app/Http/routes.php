@@ -47,4 +47,6 @@ Route::group(['prefix' => 'company/{company}', 'middleware'=>'auth'], function($
 
 
 
+// Teste commit 
+
 
