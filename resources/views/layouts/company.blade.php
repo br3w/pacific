@@ -8,7 +8,7 @@
 	<meta name="author" content="ThemeBucket">
 	<link rel="shortcut icon" href="{{url('/images/favicon.png')}}">
 
-	<title>OnSingle - @yield('title')</title>
+	<title>{{ Auth::user()->company }} - @yield('title')</title>
 
 	<!--Core CSS -->
 	<link href="{{asset('/bs3/css/bootstrap.css')}}" rel="stylesheet">
@@ -35,7 +35,7 @@
 		<header class="header fixed-top clearfix">
 			
 			<div class="brand">
-				<a href="index.html" class="logo">
+				<a href="{{ url ('/company')}}/{{Auth::user()->company}}" class="logo">
 					{{ Auth::user()->company }}
 				</a>
 			</div>

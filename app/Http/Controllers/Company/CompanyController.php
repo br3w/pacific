@@ -9,26 +9,18 @@ use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
 {
-    
-    /**
-     * Login controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function getIndex()
-    {
-        return view('company.default')->with(['company'=>'active']);
-    }
+    public function getIndex(){ return view('company.index'); }
+    public function getUser(){ return view('company.user'); }
+    public function getApplication(){ return view('company.application'); }
+    public function getNotification(){ return view('company.notification'); }
+    public function getReport(){ return view('company.report'); }
+
 
     /**
      * Show the form for creating a new resource.

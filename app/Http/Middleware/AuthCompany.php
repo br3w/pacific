@@ -3,32 +3,28 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use  App\models;
-use Illuminate\Http\Request;
 
 class AuthCompany
 {
-    
-    protected $slug;
-
-    public function __construct(Request $request){
-        $this->slug = \Auth::user()->company;
-    }
-
-    /**
+/**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        if($this->slug){
-            $cia = \App\Models\Company::where('slug', $this->slug)->first();
-            if($cia){
-                
-            }
-        }
+public function handle($request, Closure $next)
+{
+
+    $url  = explode('/', \Request::path());
+    $user = \Request::session()->get('user');
+    $cia  = \Request::session()->get('company');
+
+
+    if( $url[0] != 'dashboard'  && $url[1]  == $cia['slug']){
+        return $next($request);
+    }else{
+        return abort('404');
     }
+}
 }

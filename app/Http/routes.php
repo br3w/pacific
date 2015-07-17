@@ -19,34 +19,28 @@ Route::get('home', ['middleware'=>'auth', function() {
 	return view('welcome');
 }]);
 
-
-
-Route::get('dashboard', 'Dashboard\DashboardController@getIndex');
-Route::get('dashboard/user', 'User\UserController@getIndex');
-Route::get('dashboard/company', 'Company\CompanyController@getIndex');
-Route::get('dashboard/application', 'Application\ApplicationController@getIndex');
-Route::get('dashboard/notification', 'Notification\NotificationController@getIndex');
-Route::get('dashboard/report', 'Report\ReportController@getIndex');
-
-
-
 Route::get('login', 'Login\LoginController@getLogin');
 Route::post('login', 'Login\LoginController@postLogin');
 Route::get('logout', 'Login\LoginController@getLogout');
 
-Route::group(['prefix' => 'company/{company}', 'middleware'=>'auth'], function($company){
 
-	Route::get('/', 'Company\CompanyController@getIndex');
-
-	Route::get('/dash', function($company){        
-		$try = \App\Models\Company::where('slug', $company)->first();
-		dd($try);
-	});
+Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
+	Route::get('/', 			['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getIndex']);
+	Route::get('user', 			['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUser']);
+	Route::get('company', 		['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getCompany']);
+	Route::get('application', 	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getApplication']);
+	Route::get('notification', 	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getNotification']);
+	Route::get('report', 		['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getReport']);
 });
 
 
-
-
-// Teste commit 
+Route::group(['prefix' => 'company/{company}', 'middleware'=>'auth'], function($company){
+	Route::get('/', 			['middleware'=>'authCompany','uses' =>'Company\CompanyController@getIndex']);
+	Route::get('user', 			['middleware'=>'authCompany','uses' =>'Company\CompanyController@getUser']);
+	Route::get('company', 		['middleware'=>'authCompany','uses' =>'Company\CompanyController@getCompany']);
+	Route::get('application', 	['middleware'=>'authCompany','uses' =>'Company\CompanyController@getApplication']);
+	Route::get('notification', 	['middleware'=>'authCompany','uses' =>'Company\CompanyController@getNotification']);
+	Route::get('report', 		['middleware'=>'authCompany','uses' =>'Company\CompanyController@getReport']);
+});
 
 
