@@ -25,8 +25,16 @@ Route::get('logout', 'Login\LoginController@getLogout');
 
 
 Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
+	
 	Route::get('/', 			['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getIndex']);
+	
 	Route::get('user', 			['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUser']);
+	Route::get('user-account',	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUserAccount']);
+	Route::get('user-profile',	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUserProfile']);
+	Route::get('user-team',		['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUserTeam']);
+	Route::get('user-report',	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUserReport']);
+	Route::get('user-contact',	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getUserContact']);
+	
 	Route::get('company', 		['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getCompany']);
 	Route::get('application', 	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getApplication']);
 	Route::get('notification', 	['middleware'=>'authDashboard','uses' =>'Dashboard\DashboardController@getNotification']);

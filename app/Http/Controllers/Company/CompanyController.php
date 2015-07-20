@@ -15,74 +15,19 @@ class CompanyController extends Controller
      *
      * @return Response
      */
-    public function getIndex(){ return view('company.index'); }
-    public function getUser(){ return view('company.user'); }
-    public function getApplication(){ return view('company.application'); }
-    public function getNotification(){ return view('company.notification'); }
-    public function getReport(){ return view('company.report'); }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
+    public function getIndex(){ 
+        return view('company.index'); 
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
+    public function getUser(){ 
+        return view('company.user')->with(['user' => 'active']); 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+    public function getApplication(){ 
+        return view('company.application')->with(['application' => 'active']); 
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
+    public function getNotification(){ 
+        return view('company.notification')->with(['notification' => 'active']);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function getReport(){ 
+        return view('company.report')->with(['report' => 'active']); ; 
     }
 }
