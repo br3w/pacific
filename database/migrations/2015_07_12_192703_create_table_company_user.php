@@ -23,7 +23,7 @@ class CreateTableCompanyUser extends Migration
             $table->string('user_type');
             $table->timestamps();
         });
-    }ßß
+    }
 
     /**
      * Reverse the migrations.

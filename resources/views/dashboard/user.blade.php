@@ -24,15 +24,8 @@
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor vestibulum imperdiet. Ut auctor accumsan erat, a vulputate metus tristique non. Aliquam aliquam vel orci quis sagittis.
 				</p>
-				<a href="#" class="btn btn-primary">View Profile</a>
 			</div>
-		</div>
-		<div class="col-md-3">
 			<div class="profile-statistics">
-				<h1>1240</h1>
-				<p>This Week Sales</p>
-				<h1>$5,61,240</h1>
-				<p>This Week Earn</p>
 				<ul>
 					<li>
 						<a href="#">
@@ -59,19 +52,22 @@
 	<header class="panel-heading ">
 		<ul class="nav nav-tabs">
 			<li class="{{ $account or '' }}">
-				<a href="{{url('/dashboard/user')}}">Account</a>
+				<a href="{{url('/dashboard/user-account')}}">Account</a>
 			</li>
 			<li class="{{ $profile or '' }}">
 				<a href="{{url('/dashboard/user-profile')}}">Profile</a>
 			</li>
+			<li class="{{ $social or '' }}">
+				<a href="{{url('/dashboard/user-social')}}">Social</a>
+			</li>
+			<li class="{{ $contact or '' }}">
+				<a href="{{url('/dashboard/user-contact')}}">Contact</a>
+			</li>						
 			<li class="{{ $team or '' }}">
 				<a href="{{url('/dashboard/user-team')}}">Team</a>
 			</li>
 			<li class="{{ $report or '' }}">
 				<a href="{{url('/dashboard/user-report')}}">report</a>
-			</li>
-			<li class="{{ $contact or '' }}">
-				<a href="{{url('/dashboard/user-contact')}}">Contact</a>
 			</li>
 		</ul>
 	</header>
@@ -79,29 +75,35 @@
 		<div class="tab-content">
 			<div class="tab-pane {{ $account or '' }}">	
 				@if (isset($account)) 
-				@include('dashboard.partial.user-account')
+					@include('dashboard.partial.user-account')
 				@endif
 			</div>	
 			<div class="tab-pane {{ $profile or '' }}">
 				@if (isset($profile)) 
-				@include('dashboard.partial.user-profile')
+					@include('dashboard.partial.user-profile')
 				@endif
 			</div>
-			<div class="tab-pane {{ $team or '' }}">
-				@if (isset($team)) 
-				
-				@endif
-			</div>
-			<div class="tab-pane {{ $report or '' }}">
-				@if (isset($report)) 
-
+			<div class="tab-pane {{ $social or '' }}">
+				@if (isset($social)) 
+					@include('dashboard.partial.user-social')
 				@endif
 			</div>
 			<div class="tab-pane {{ $contact or '' }}">
 				@if (isset($contact)) 
-
+					@include('dashboard.partial.user-contact')
+				@endif
+			</div>						
+			<div class="tab-pane {{ $team or '' }}">
+				@if (isset($team)) 
+					@include('dashboard.partial.user-team')
 				@endif
 			</div>
+			<div class="tab-pane {{ $report or '' }}">
+				@if (isset($report)) 
+					@include('dashboard.partial.user-report')
+				@endif
+			</div>
+
 		</div>
 	</div>
 </section>

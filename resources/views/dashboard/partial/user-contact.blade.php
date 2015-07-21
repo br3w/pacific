@@ -1,6 +1,6 @@
 <div class="content-form">
 	<div class="tab-content  mt40  mb60">						
-		<h2 class="title-icon "><span><i class="fa fa-lock"></i></span>Change password</h2>
+		<h2 class="title-icon "><span><i class="fa fa-book"></i></span>Contacts</h2>
 	    <form class="cmxform form-horizontal"  method="POST" action="{{ url('/dashboard/user-account') }}">
 	    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 	    	<input type="hidden" name="_method" value="PUT">

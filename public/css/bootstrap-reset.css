@@ -18,7 +18,6 @@ a:hover {
     font-size: 13px;
     font-weight: 400;
     background: #fafafa;
-    text-transform: uppercase;
     padding: 15px;
 }
 
@@ -117,10 +116,10 @@ a:hover {
 
 /*text input*/
 
-.form-control {
+.form-control, input.form-control, input{
     border: 1px solid #e2e2e4;
     box-shadow: none;
-    color: #888;
+    color: #888!important;
 }
 
 
@@ -131,7 +130,8 @@ a:hover {
 
 .form-horizontal .control-label {
     font-weight: 300;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 7px 0;
 }
 
 input, textarea, select, button {
@@ -145,22 +145,22 @@ ul {
 }
 
 /*button*/
-
+        
 .btn-default {
-    background-color: #c7cbd6;
-    border-color: #c7cbd6;
+    background-color: #bbb;
+    border-color: #bbb;
     color: #fff;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    background-color: #e2e2e4;
-    border-color: #e2e2e4!important;
+    background-color: #F20000;
+    border-color: #F20000!important;
     color: #fff!important;
 }
 
 .btn-primary {
-    background-color: #D0D1D3;
-    border-color: #D0D1D3;
+    background-color: #bbb;
+    border-color: #bbb;
     color: #FFFFFF;
 }
 

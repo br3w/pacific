@@ -6,25 +6,23 @@ use Closure;
 
 class AuthCompany
 {
-/**
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      */
-public function handle($request, Closure $next)
-{
+    public function handle($request, Closure $next)
+    {
+        $url  = explode('/', \Request::path());
+        $user = \Request::session()->get('user');
+        $cia  = \Request::session()->get('company');
 
-    $url  = explode('/', \Request::path());
-    $user = \Request::session()->get('user');
-    $cia  = \Request::session()->get('company');
-
-
-    if( $url[0] != 'dashboard'  && $url[1]  == $cia['slug']){
-        return $next($request);
-    }else{
-        return abort('404');
+        if( $url[0] != 'dashboard'  && $url[1] == $cia['slug'] && $cia['active'] == true){
+            return $next($request);
+        }else{
+            return abort('404');
+        }
     }
-}
 }

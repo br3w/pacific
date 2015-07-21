@@ -45,6 +45,24 @@ class DashboardController extends Controller
             ]); 
     }
 
+    // Page User Contact
+    public function getUserSocial(){ 
+        return view('dashboard.user')
+        ->with([
+            'user' => 'active',
+            'social' => 'active'
+            ]); 
+    }
+
+    // Page User Contact
+    public function getUserContact(){ 
+        return view('dashboard.user')
+        ->with([
+            'user' => 'active',
+            'contact' => 'active'
+            ]); 
+    }    
+
     // Page User Team
     public function getUserTeam(){ 
         return view('dashboard.user')
@@ -63,14 +81,7 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Contact
-    public function getUserContact(){ 
-        return view('dashboard.user')
-        ->with([
-            'user' => 'active',
-            'contact' => 'active'
-            ]); 
-    }
+
 
 
 
