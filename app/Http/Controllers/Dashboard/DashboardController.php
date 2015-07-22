@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+    /**
+    * Dashboard authentication.
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('authDashboard');
+    }
 
     /** 
     * Display a listing of the resource.
@@ -27,7 +37,11 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Account
+/* ==================================================
+                REST USER-ACCOUNT
+================================================== */
+
+    // Get User Account
     public function getUserAccount(){ 
         return view('dashboard.user')
         ->with([
@@ -36,7 +50,59 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Profile
+    // Put User Account
+    // Only update password of the user logged
+    public function putUserAccount(Request $request){
+
+        $password = \Hash::check( $request->old_password, \Auth::user()->password);
+        $userId   = \Auth::user()->id;
+
+        $validator = Validator::make($request->all(), [
+            'old_password'   => 'required|min:6',
+            'new_password'   => 'required|min:6',
+            'conf_password'  => 'required|min:6|same:new_password'
+        ]);
+
+        if (!$password && !$validator->fails()){
+            $validator->after(function($validator) {
+                $validator->errors()->add('old_password', 'Invalid old password field!');                
+            });
+        }
+
+        if ($validator->fails()) {
+            return redirect('dashboard/user-account')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = \App\Models\User::find($userId);
+        $user->password = \Hash::make($request->new_password);
+        $user->save();
+
+        return view('dashboard.user')
+            ->with([
+                'user' => 'active',
+                'account' => 'active',
+                'update' => true
+            ]); 
+    }
+
+    // Post User Account
+    // Only create User with permiss
+    public function postUserAccount(){ 
+
+    }
+
+    // Delete User Account
+    public function deleteUserAccount(){ 
+
+    }
+
+/* ==================================================
+                REST USER-PROFILE
+================================================== */
+
+    // Get User Profile
     public function getUserProfile(){ 
         return view('dashboard.user')
         ->with([
@@ -45,7 +111,85 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Contact
+    // Post User Profile
+    // Create Profile  
+    public function postUserAccount(Request $request){
+
+        $password = \Hash::check( $request->old_password, \Auth::user()->password);
+        $userId   = \Auth::user()->id;
+
+        $validator = Validator::make($request->all(), [
+            'old_password'   => 'required|min:6',
+            'new_password'   => 'required|min:6',
+            'conf_password'  => 'required|min:6|same:new_password'
+        ]);
+
+        if (!$password && !$validator->fails()){
+            $validator->after(function($validator) {
+                $validator->errors()->add('old_password', 'Invalid old password field!');                
+            });
+        }
+
+        if ($validator->fails()) {
+            return redirect('dashboard/user-account')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = \App\Models\User::find($userId);
+        $user->password = \Hash::make($request->new_password);
+        $user->save();
+
+        return view('dashboard.user')
+            ->with([
+                'user' => 'active',
+                'account' => 'active',
+                'update' => true
+            ]); 
+    }
+
+    // Put User Account
+    // Only update password of the user logged
+    public function putUserAccount(Request $request){
+
+        $password = \Hash::check( $request->old_password, \Auth::user()->password);
+        $userId   = \Auth::user()->id;
+
+        $validator = Validator::make($request->all(), [
+            'old_password'   => 'required|min:6',
+            'new_password'   => 'required|min:6',
+            'conf_password'  => 'required|min:6|same:new_password'
+        ]);
+
+        if (!$password && !$validator->fails()){
+            $validator->after(function($validator) {
+                $validator->errors()->add('old_password', 'Invalid old password field!');                
+            });
+        }
+
+        if ($validator->fails()) {
+            return redirect('dashboard/user-account')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = \App\Models\User::find($userId);
+        $user->password = \Hash::make($request->new_password);
+        $user->save();
+
+        return view('dashboard.user')
+            ->with([
+                'user' => 'active',
+                'account' => 'active',
+                'update' => true
+            ]); 
+    }
+
+/* ==================================================
+                REST USER-SOCIAL
+================================================== */   
+
+    // Get User Social
     public function getUserSocial(){ 
         return view('dashboard.user')
         ->with([
@@ -54,16 +198,24 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Contact
+/* ==================================================
+                REST USER-CONTACT
+================================================== */
+
+    // Get User Contact
     public function getUserContact(){ 
         return view('dashboard.user')
         ->with([
             'user' => 'active',
             'contact' => 'active'
             ]); 
-    }    
+    }  
 
-    // Page User Team
+/* ==================================================
+                REST USER-TEAM
+================================================== */  
+
+    // Get User Team
     public function getUserTeam(){ 
         return view('dashboard.user')
         ->with([
@@ -72,7 +224,11 @@ class DashboardController extends Controller
             ]); 
     }
 
-    // Page User Report
+/* ==================================================
+                REST USER-REPORT
+================================================== */
+
+    // Get User Report
     public function getUserReport(){ 
         return view('dashboard.user')
         ->with([

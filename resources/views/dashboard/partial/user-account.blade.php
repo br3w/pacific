@@ -6,16 +6,25 @@
 	    	<input type="hidden" name="_method" value="PUT">
 	    	<div class="form-group">
 				@if (count($errors) > 0)
-					@foreach ($errors->all() as $error)
-	                	<div class=" ">
-	                    	<div class="alert alert-block alert-danger fade in">
-	                            <button data-dismiss="alert" class="close close-sm" type="button">
-	                                <i class="fa fa-times"></i>
-	                            </button>
-	                            <strong><i class="fa fa-exclamation-circle"></i> </strong> {{ $error }}
-	                        </div>
-						</div>
-					@endforeach
+					<div class="mt40">
+						@foreach ($errors->all() as $error)					
+		                	<div class="alert alert-block alert-danger fade in">
+		                        <button data-dismiss="alert" class="close close-sm" type="button">
+		                            <i class="fa fa-times"></i>
+		                        </button>
+		                        <strong><i class="fa fa-exclamation-circle"></i> </strong> {{ $error }}
+		                    </div>	                
+						@endforeach
+					</div>
+				@endif
+
+				@if (isset($update)) 
+                	<div class="alert alert-block alert-success fade in mt40">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong><i class="fa fa-exclamation-circle"></i> </strong>Password update!
+                    </div>
 				@endif
 			</div>
 	        <div class="form-group">                                    
@@ -33,19 +42,19 @@
 	        <div class="form-group">                                    
 	            <div class=" ">
 	            	<label for="password" class="control-label">Old password :</label>
-	                <input class="form-control " id="password_old" name="password_old" type="password" />
+	                <input class="form-control " id="old_password" name="old_password" type="password" />
 	            </div>
 	        </div>	                                                                   
 	        <div class="form-group">                                    
 	            <div class=" ">
 	            	<label for="password" class="control-label">New password :</label>
-	                <input class="form-control " id="password_new" name="password_new" type="password" />
+	                <input class="form-control " id="new_password" name="new_password" type="password" />
 	            </div>
 	        </div>
 	        <div class="form-group">                                    
 	            <div class=" ">
 	            	<label class="control-label" for="confirm_password">Confirm Password :</label>
-	                <input class="form-control " id="password_conf" name="password_conf" type="password" />
+	                <input class="form-control " id="conf_password" name="conf_password" type="password" />
 	            </div>
 	        </div>
 	        <div class="form-group">

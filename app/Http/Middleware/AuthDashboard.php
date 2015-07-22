@@ -15,7 +15,6 @@ class AuthDashboard
      */
     public function handle($request, Closure $next)
     {
-
         $url  = explode('/', \Request::path());
         $user = \Request::session()->get('user');
         $cia  = \Request::session()->get('company');

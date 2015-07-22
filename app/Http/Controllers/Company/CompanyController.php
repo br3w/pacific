@@ -11,6 +11,16 @@ class CompanyController extends Controller
 {
 
     /**
+    * Company authentication.
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('authCompany');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
