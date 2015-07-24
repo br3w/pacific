@@ -19,7 +19,7 @@ class AuthCompany
         $user = \Request::session()->get('user');
         $cia  = \Request::session()->get('company');
 
-        if( $url[0] != 'dashboard'  && $url[1] == $cia['slug'] && $cia['active'] == true){
+        if( $url[0] != 'dashboard'  && $url[1] == $cia['slug'] && \Auth::user()->active == true){
             return $next($request);
         }else{
             return abort('404');

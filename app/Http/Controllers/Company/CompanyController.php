@@ -26,7 +26,7 @@ class CompanyController extends Controller
      * @return Response
      */
     public function getIndex(){ 
-        return view('company.index'); 
+        return view('company.index')->with(['user' => 'active']);  
     }
     public function getUser(){ 
         return view('company.user')->with(['user' => 'active']); 
