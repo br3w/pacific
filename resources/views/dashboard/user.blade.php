@@ -8,8 +8,7 @@
 @endsection
 
 
-@section('content')   
-
+@section('content')
 <section class="panel">
 	<div class="panel-body profile-information">
 		<div class="col-md-3">
@@ -107,11 +106,15 @@
 		</div>
 	</div>
 </section>
-
-
 @endsection
 
 
 @section('right-aside')
 <p>This is my right-aside.</p>
 @endsection 
+
+
+@section('scripts')
+<script src="{{asset('/js/jquery.maskedinput.js')}}"></script>
+@endsection 
+

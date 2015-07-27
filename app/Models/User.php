@@ -12,24 +12,34 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 {
     use Authenticatable, CanResetPassword;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+        /**
+        * The database table used by the model.
+        *
+        * @var string
+        */
+        protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['email', 'password', 'active', 'status', 'type', 'company'];
+        /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+        */
+        protected $fillable = ['email', 'password', 'active', 'status', 'type', 'company'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = ['password', 'remember_token'];
+        /**
+        * The attributes excluded from the model's JSON form.
+        *
+        * @var array
+        */
+        protected $hidden = ['password', 'remember_token'];
+
+        /**
+        * Get the phone record associated with the user.
+        */
+        public function profile()
+        {
+            return $this->hasOne('App\models\UserProfile');
+        }
+
+
 }

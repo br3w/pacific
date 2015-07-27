@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use Validator;
+use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -103,15 +105,77 @@ class DashboardController extends Controller
 ================================================== */
 
     // Get User Profile
-    public function getUserProfile(){ 
+    public function getUserProfile(){
+        $method =  ( User::find(\Auth::user()->id)->profile ) ? 'PUT' : 'POST';
         return view('dashboard.user')
         ->with([
-            'user' => 'active',
-            'profile' => 'active'
-            ]); 
+            'user'      => 'active',
+            'profile'   => 'active',
+            'method'    =>  $method
+        ]); 
     }
 
-    
+    // Post User Profile
+    public function postUserProfile(Request $request){
+
+
+        // $this->validate($request, [
+        //     'first_name'        => 'required',
+        //     'last_name'         => 'required',
+        //     'birth_date'        => 'required',
+        //     'live_place'        => 'required',
+        //     'company'           => 'required',
+        //     'office'            => 'required',
+        //     'admission_date'    => 'required',
+        //     'education'         => 'required',
+        //     'institution'       => 'required',
+        //     'conclusion'        => 'required'
+        // ]);
+
+
+        dd(str_replace('/', '-', $request->birth_date));
+     
+        $user    = User::find(\Auth::user()->id);
+        $profile = new UserProfile([
+            'first_name'        => $request->first_name,
+            'last_name'         => $request->last_name,
+            //'birth_date'        => replace('/', '-', $request->birth_date)
+            'birth_place'       => $request->birth_place,
+            'live_place'        => $request->live_place,
+            'company'           => $request->company,
+            'office'            => $request->office,
+            'admission_date'    => $request->admission_date,
+            'education'         => $request->education,
+            'institution'       => $request->institution,
+            'conclusion'        => $request->conclusion,
+            'favorite_hobby'    => $request->favorite_hobby,
+            'favorite_issue'    => $request->favorite_issue,
+            'favorite_color'    => $request->favorite_color,
+            'favorite_place'    => $request->favorite_place,
+            'favorite_book'     => $request->favorite_book,
+            'favorite_music'    => $request->favorite_music,
+            'favorite_movie'    => $request->favorite_movie,
+            'favorite_theater'  => $request->favorite_theater,
+            'favorite_sport'    => $request->favorite_sport,
+            'favorite_thinker'  => $request->favorite_thinker,
+            'user_id'           => \Auth::user()->id
+        ]);
+
+        $user->profile()->save($profile);
+
+
+    }
+
+    // Put User Profile
+    public function putUserProfile(Request $request){ 
+        dd($request->all());
+    }
+
+    // Delete User Profile
+    public function deleteUserProfile(){ 
+        
+    }
+
 
 /* ==================================================
                 REST USER-SOCIAL

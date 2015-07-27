@@ -75,6 +75,10 @@
 <script src="{{asset('/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('/js/jquery.nicescroll.js')}}"></script>
 
+<!--Scripts of the Page-->
+@section('scripts')
+    
+@show
 
 
 <!--common script init for all pages-->

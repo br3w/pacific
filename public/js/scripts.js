@@ -190,7 +190,9 @@
             e.preventDefault();
         });
 
-
+        /*==Mask Input==*/
+        $(".date-form-input").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
+        $(".phone-form-input").mask("(999) 9999-9999");
 
 
         /*==Sidebar Toggle==*/
