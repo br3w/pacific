@@ -4,29 +4,35 @@
 	    <form class="cmxform form-horizontal"  method="POST" action="{{ url('/dashboard/user-account') }}">
 	    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 	    	<input type="hidden" name="_method" value="PUT">
-	    	<div class="form-group">
+	    	
+	    	<div class="form-group mt40">
 				@if (count($errors) > 0)
-					<div class="mt40">
-						@foreach ($errors->all() as $error)					
-		                	<div class="alert alert-block alert-danger fade in">
-		                        <button data-dismiss="alert" class="close close-sm" type="button">
-		                            <i class="fa fa-times"></i>
-		                        </button>
-		                        <strong><i class="fa fa-exclamation-circle"></i> </strong> {{ $error }}
+					<div class="alert alert-block alert-danger fade in">
+						@foreach ($errors->all() as $error)	
+							<div class="form-group">				
+		                        <strong class="ml20"><i class="fa fa-exclamation-circle"></i> </strong> {{ $error }}
 		                    </div>	                
 						@endforeach
 					</div>
 				@endif
-
-				@if (isset($update)) 
-                	<div class="alert alert-block alert-success fade in mt40">
-                        <button data-dismiss="alert" class="close close-sm" type="button">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <strong><i class="fa fa-exclamation-circle"></i> </strong>Password update!
-                    </div>
-				@endif
 			</div>
+
+			@if (isset($update))
+	    	<div class="form-group mt40">
+				<div class="alert alert-success ">
+				    <span class="alert-icon"><i class="fa fa-comments-o"></i></span>
+				    <div class="notification-info">
+				        <ul class="clearfix notification-meta">
+				            <li class="pull-left notification-sender">Account updated successfully</li>
+				        </ul>
+				        <p>
+				            <a href="#">Thank you for updating your data</a>
+				        </p>
+				    </div>
+				</div>
+			</div>
+	    	@endif 
+
 	        <div class="form-group">                                    
 	            <div class=" ">
 	            	<label for="password" class="control-label">Company :</label>

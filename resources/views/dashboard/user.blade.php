@@ -18,8 +18,8 @@
 		</div>
 		<div class="col-md-6">
 			<div class="profile-desk">
-				<h1>David Rojormillan</h1>
-				<span class="text-muted">Product Manager</span>
+				<h1>{{isset($full_name) ? $full_name : Auth::user()->email }}</h1>
+				<span class="text-muted">{{isset($office) ? $office : Auth::user()->company }}</span>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor vestibulum imperdiet. Ut auctor accumsan erat, a vulputate metus tristique non. Aliquam aliquam vel orci quis sagittis.
 				</p>

@@ -2,10 +2,13 @@
 	<div class="tab-content  mt40  mb60">						
 		<h2 class="title-icon "><span><i class="fa fa-user"></i></span>Set Profile </h2>
 	    <form class="cmxform form-horizontal mt20"  method="POST" action="{{ url('/dashboard/user-profile') }}">
+	    	
 	    	<input type="hidden" name="_token" value="{!! csrf_token()!!}">
+	 
 	    	@if ($method == 'PUT')
 	    	<input type="hidden" name="_method" value="PUT">
 	    	@endif
+
 	    	@if ($method == 'POST')
 	    	<div class="form-group mt40">
 				<div class="alert alert-warning ">
@@ -20,7 +23,24 @@
 	                </div>
             	</div>
             </div>
-	    	@endif    	
+	    	@endif 
+
+	    	@if (isset($update))
+	    	<div class="form-group mt40">
+				<div class="alert alert-success ">
+				    <span class="alert-icon"><i class="fa fa-comments-o"></i></span>
+				    <div class="notification-info">
+				        <ul class="clearfix notification-meta">
+				            <li class="pull-left notification-sender">Profile updated successfully</li>
+				        </ul>
+				        <p>
+				            <a href="#">Thank you for updating your data</a>
+				        </p>
+				    </div>
+				</div>
+			</div>
+	    	@endif 
+
 	    	<div class="form-group">
 				@if (count($errors) > 0)
 					<div class="alert alert-block alert-danger fade in">
@@ -31,15 +51,8 @@
 						@endforeach
 					</div>
 				@endif
-				@if (isset($update)) 
-                	<div class="alert alert-block alert-success fade in mt40">
-                        <button data-dismiss="alert" class="close close-sm" type="button">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <strong><i class="fa fa-exclamation-circle"></i> </strong>Password update!
-                    </div>
-				@endif
-			</div>						
+			</div>
+
 	        <div class="form-group">                                    
 	            <div class=" ">
 	            	<label for="password" class="control-label">First name</label>
@@ -60,8 +73,8 @@
 	        </div>                                                            
 	        <div class="form-group">                                    
 	            <div class=" ">
-	            	<label for="password" class="control-label">City birth</label>
-	                <input type="text" class="form-control" id="city_birth" name="city_birth" value="{{ isset($city_birth) ? $city_birth : ''}}{{ old('city_birth')}}"/>
+	            	<label for="password" class="control-label">Birth place</label>
+	                <input type="text" class="form-control" id="birth_place" name="birth_place" value="{{ isset($birth_place) ? $birth_place : ''}}{{ old('birth_place')}}"/>
 	            </div>
 	        </div>
 	        <div class="form-group">                                    
@@ -180,7 +193,7 @@
 	            	<label for="password" class="control-label">Favorite thinker</label>
 	                <input type="text" class="form-control " id="favorite_thinker" name="favorite_thinker" value="{{ isset($favorite_thinker) ? $favorite_thinker : '' }}{{ old('favorite_thinker')}}"/>
 	            </div>
-	        </div>
+	        </div><br>
 
 
 	        <div class="form-group">
