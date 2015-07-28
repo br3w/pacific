@@ -30,26 +30,12 @@ class DashboardController extends Controller
         return view('dashboard.index'); 
     }
 
-
 /* ==================================================
                USER HOME
 ================================================== */
 
     // Page User Home
-    public function getUser(){   
-        $profile  =  User::find(\Auth::user()->id)->profile;
-        if($profile){
-            return view('dashboard.user')
-            ->with([
-                'user'          => 'active',
-                'account'       => 'active',
-                'first_name'    => $profile->first_name,
-                'last_name'     => $profile->last_name,
-                'full_name'     => $profile->first_name.' '.$profile->last_name,
-                'office'        => $profile->office
-            ]); 
-        }
-
+    public function getUser(){        
         return view('dashboard.user')
         ->with([
             'user'      => 'active',
