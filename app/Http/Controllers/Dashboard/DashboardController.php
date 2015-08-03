@@ -49,23 +49,9 @@ class DashboardController extends Controller
 
     // Get User Account
     public function getUserAccount(){
-
-        $profile  =  User::find(\Auth::user()->id)->profile;
-        if($profile){
-            return view('dashboard.user')
-            ->with([
-                'user'          => 'active',
-                'account'       => 'active',
-                'first_name'    => $profile->first_name,
-                'last_name'     => $profile->last_name,
-                'full_name'     => $profile->first_name.' '.$profile->last_name,
-                'office'        => $profile->office
-            ]); 
-        }
-
-        return view('dashboard.user')
+       return view('dashboard.user')
         ->with([
-            'user' => 'active',
+            'user'    => 'active',
             'account' => 'active'
             ]); 
     }
@@ -309,17 +295,33 @@ class DashboardController extends Controller
     }
 
 /* ==================================================
-                REST USER-CONTACT
+                REST USER-ADDRESSS
 ================================================== */
 
     // Get User Contact
-    public function getUserContact(){ 
+    public function getUserAddress(){ 
         return view('dashboard.user')
         ->with([
             'user' => 'active',
-            'contact' => 'active'
+            'address' => 'active'
             ]); 
     }  
+
+
+
+/* ==================================================
+                REST USER-PHONE
+================================================== */
+
+    // Get User Contact
+    public function getUserphone(){ 
+        return view('dashboard.user')
+        ->with([
+            'user' => 'active',
+            'phone' => 'active'
+            ]); 
+    }  
+
 
 /* ==================================================
                 REST USER-TEAM

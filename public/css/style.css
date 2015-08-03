@@ -5887,3 +5887,19 @@ h2.title-icon span{
     margin-left: 60px;
     width: 400px;
 }
+
+.address-form{
+    border-bottom: 1px solid #EEE;
+    padding-bottom:20px;
+    margin-top: 40px;
+    border-radius: 2px;
+}
+
+.address-form p.titulo{
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.address-form .bts {
+    text-align: right;
+}

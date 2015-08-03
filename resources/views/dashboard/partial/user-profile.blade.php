@@ -1,7 +1,7 @@
 <div class="content-form">
 	<div class="tab-content  mt40  mb60">						
 		<h2 class="title-icon "><span><i class="fa fa-user"></i></span>Set Profile </h2>
-	    <form class="cmxform form-horizontal mt20"  method="POST" action="{{ url('/dashboard/user-profile') }}">
+	    <form class="cmxform form-horizontal"  method="POST" action="{{ url('/dashboard/user-profile') }}">
 	    	
 	    	<input type="hidden" name="_token" value="{!! csrf_token()!!}">
 	 

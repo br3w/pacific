@@ -38,7 +38,8 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
 	Route::get('user-account',	'Dashboard\DashboardController@getUserAccount');
 	Route::get('user-profile',	'Dashboard\DashboardController@getUserProfile');
 	Route::get('user-social',	'Dashboard\DashboardController@getUserSocial');
-	Route::get('user-contact',	'Dashboard\DashboardController@getUserContact');
+	Route::get('user-address',	'Dashboard\DashboardController@getUserAddress');
+	Route::get('user-phone',	'Dashboard\DashboardController@getUserPhone');
 	Route::get('user-team',		'Dashboard\DashboardController@getUserTeam');
 	Route::get('user-report',	'Dashboard\DashboardController@getUserReport');
 
@@ -47,7 +48,8 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
 	Route::put('user-account',	'Dashboard\DashboardController@putUserAccount');
 	Route::put('user-profile',	'Dashboard\DashboardController@putUserProfile');
 	Route::put('user-social',	'Dashboard\DashboardController@putUserSocial');
-	Route::put('user-contact',	'Dashboard\DashboardController@putUserContact');
+	Route::put('user-Address',	'Dashboard\DashboardController@putUserAddress');
+	Route::put('user-phone',	'Dashboard\DashboardController@putUserPhone');
 	Route::put('user-team',		'Dashboard\DashboardController@putUserTeam');
 	Route::put('user-report',	'Dashboard\DashboardController@putUserReport');
 
@@ -56,7 +58,8 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
 	Route::post('user-account',	'Dashboard\DashboardController@postUserAccount');
 	Route::post('user-profile',	'Dashboard\DashboardController@postUserProfile');
 	Route::post('user-social',	'Dashboard\DashboardController@postUserSocial');
-	Route::post('user-contact',	'Dashboard\DashboardController@postUserContact');
+	Route::post('user-address',	'Dashboard\DashboardController@postUserAddress');
+	Route::post('user-phone',	'Dashboard\DashboardController@postUserPhone');
 	Route::post('user-team',	'Dashboard\DashboardController@postUserTeam');
 	Route::post('user-report',	'Dashboard\DashboardController@postUserReport');	
 
@@ -65,7 +68,8 @@ Route::group(['prefix' => 'dashboard', 'middleware'=>'auth'], function(){
 	Route::delete('user-account',	'Dashboard\DashboardController@deleteUserAccount');
 	Route::delete('user-profile',	'Dashboard\DashboardController@deleteUserProfile');
 	Route::delete('user-social',	'Dashboard\DashboardController@deleteUserSocial');
-	Route::delete('user-contact',	'Dashboard\DashboardController@deleteUserContact');
+	Route::delete('user-address',	'Dashboard\DashboardController@deleteUserAddress');
+	Route::delete('user-phone',		'Dashboard\DashboardController@deleteUserPhone');
 	Route::delete('user-team',		'Dashboard\DashboardController@deleteUserTeam');
 	Route::delete('user-report',	'Dashboard\DashboardController@deleteUserReport');
 

@@ -59,8 +59,11 @@
 			<li class="{{ $social or '' }}">
 				<a href="{{url('/dashboard/user-social')}}">Social</a>
 			</li>
-			<li class="{{ $contact or '' }}">
-				<a href="{{url('/dashboard/user-contact')}}">Contact</a>
+			<li class="{{ $address or '' }}">
+				<a href="{{url('/dashboard/user-address')}}">Address</a>
+			</li>			
+			<li class="{{ $phone or '' }}">
+				<a href="{{url('/dashboard/user-phone')}}">Phone</a>
 			</li>						
 			<li class="{{ $team or '' }}">
 				<a href="{{url('/dashboard/user-team')}}">Team</a>
@@ -87,11 +90,16 @@
 					@include('dashboard.partial.user-social')
 				@endif
 			</div>
-			<div class="tab-pane {{ $contact or '' }}">
-				@if (isset($contact)) 
-					@include('dashboard.partial.user-contact')
+			<div class="tab-pane {{ $address or '' }}">
+				@if (isset($address)) 
+					@include('dashboard.partial.user-address')
 				@endif
-			</div>						
+			</div>
+			<div class="tab-pane {{ $phone or '' }}">
+				@if (isset($phone)) 
+					@include('dashboard.partial.user-phone')
+				@endif
+			</div>							
 			<div class="tab-pane {{ $team or '' }}">
 				@if (isset($team)) 
 					@include('dashboard.partial.user-team')

@@ -1,6 +1,6 @@
 <div class="content-form">
 	<div class="tab-content  mt40  mb60">						
-		<h2 class="title-icon "><span><i class="fa fa-thumbs-o-up"></i></span>Social Network</h2>
+		<h2 class="title-icon "><span><i class="fa fa-book"></i></span>Contacts</h2>
 	    <form class="cmxform form-horizontal"  method="POST" action="{{ url('/dashboard/user-account') }}">
 	    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 	    	<input type="hidden" name="_method" value="PUT">
@@ -18,55 +18,45 @@
 					@endforeach
 				@endif
 			</div>
+
+
 	        <div class="form-group">                                    
-	            <div class=" ">
-	            	<label for="facebook" class="control-label">Facebook :</label>
-	                <input class="form-control"  name="facebook" id="facebook" value="{{ $facebook or '' }}" />
-	            </div>
-	        </div>
-			<div class="form-group">                                    
 			    <div class=" ">
-			    	<label for="twitter" class="control-label">Twitter :</label>
+			    	<label for="twitter" class="control-label">Address type :</label>
 			        <input class="form-control"  name="twitter" id="twitter" value="{{ $twitter or '' }}" />
 			    </div>
 			</div>
 			<div class="form-group">                                    
 			    <div class=" ">
-			    	<label for="linkdin" class="control-label">Linkdin :</label>
+			    	<label for="twitter" class="control-label">Street and number :</label>
+			        <input class="form-control"  name="twitter" id="twitter" value="{{ $twitter or '' }}" />
+			    </div>
+			</div>
+			<div class="form-group">                                    
+			    <div class=" ">
+			    	<label for="linkdin" class="control-label">Postal code :</label>
 			        <input class="form-control"  name="linkdin" id="linkdin" value="{{ $linkdin or '' }}" />
 			    </div>
 			</div>
 			<div class="form-group">                                    
 			    <div class=" ">
-			    	<label for="instagram" class="control-label">Instagram :</label>
+			    	<label for="instagram" class="control-label">City :</label>
 			        <input class="form-control"  name="instagram" id="instagram" value="{{ $instagram or '' }}" />
 			    </div>
 			</div>
 			<div class="form-group">                                    
 			    <div class=" ">
-			    	<label for="google_plus" class="control-label">Google Plus :</label>
+			    	<label for="google_plus" class="control-label">District :</label>
 			        <input class="form-control"  name="google_plus" id="google_plus" value="{{ $google_plus or '' }}" />
 			    </div>
 			</div>
 			<div class="form-group">                                    
 			    <div class=" ">
-			    	<label for="whats_app" class="control-label">Whats App :</label>
+			    	<label for="whats_app" class="control-label">Country :</label>
 			        <input class="form-control"  name="whats_app" id="whats_app" value="{{ $whats_app or '' }}" />
 			    </div>
 			</div>
-			<div class="form-group">                                    
-			    <div class=" ">
-			    	<label for="waze" class="control-label">Waze :</label>
-			        <input class="form-control"  name="waze" id="waze" value="{{ $waze or '' }}" />
-			    </div>
-			</div>
-			<div class="form-group">                                    
-			    <div class=" ">
-			    	<label for="viber" class="control-label">Viber :</label>
-			        <input class="form-control"  name="viber" id="viber" value="{{ $viber or '' }}" />
-			    </div>
-			</div>
-	       
+
 	        <div class="form-group">
 	            <div class=" ">
 	                <button class="btn btn-primary" type="submit">Save</button>
@@ -76,3 +66,4 @@
 	    </form>                                
 	</div>
 </div>
+

@@ -5,7 +5,7 @@
 	    	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 	    	<input type="hidden" name="_method" value="PUT">
 	    	
-	    	<div class="form-group mt40">
+	    	<div class="form-group">
 				@if (count($errors) > 0)
 					<div class="alert alert-block alert-danger fade in">
 						@foreach ($errors->all() as $error)	
