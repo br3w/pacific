@@ -12,7 +12,16 @@ class CreateTableUserPhone extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_phone', function(Blueprint $table){
+            $table->increments('id');  
+            $table->enum('type',['home','work','mobile','temporary']);          
+            $table->string('country_code', 5);
+            $table->string('city_code', 5);
+            $table->string('phone_number', 20);
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateTableUserPhone extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('user_phone');
     }
 }

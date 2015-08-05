@@ -34,12 +34,35 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         protected $hidden = ['password', 'remember_token'];
 
         /**
-        * Get the phone record associated with the user.
+        * Get the profile record associated with the user.
         */
         public function profile()
         {
             return $this->hasOne('App\models\UserProfile');
         }
 
+        /**
+        * Get the social record associated with the user.
+        */
+        public function social()
+        {
+            return $this->hasOne('App\models\UserSocial');
+        }
+
+        /**
+        * Get the address record associated with the user.
+        */
+        public function address()
+        {
+            return $this->hasMany('App\models\UserAddress');
+        }
+
+        /**
+        * Get the phone record associated with the user.
+        */
+        public function phone()
+        {
+            return $this->hasMany('App\models\UserPhone');
+        }
 
 }
